@@ -1,0 +1,204 @@
+# 🎮 2D Platformer Game (Godot)
+
+## 📌 Project Overview
+
+This is a **2D platformer game built in Godot Engine**, developed as part of a structured learning progression covering gameplay mechanics, level design, UI/UX, and AI.
+
+The game focuses on:
+
+* Physics-based movement
+* Hazard-based gameplay (instant death)
+* Enemy interaction
+* Level progression with increasing difficulty
+
+---
+
+## 🗂️ Project Structure
+
+### 🎬 Scenes
+
+```
+game.tscn          # Main game scene
+player.tscn        # Player character
+slime.tscn         # Enemy (basic AI)
+platform.tscn      # Platform objects
+killzone.tscn      # Instant-death zones (spikes/traps)
+coin.tscn          # Collectible item
+music.tscn         # Audio / background music handler
+```
+
+### 🧠 Scripts
+
+```
+player.gd          # Player movement & controls
+slime.gd           # Enemy AI behavior
+coin.gd            # Coin logic (collection)
+killzone.gd        # Death trigger logic
+game_manager.gd    # Game state management (restart, level control)
+```
+
+---
+
+## 🎮 Core Gameplay Mechanics
+
+### 🕹️ Player Controller
+
+Implemented in `player.gd`:
+
+* Left / Right movement
+* Jumping using physics
+* Collision detection with:
+
+  * Platforms
+  * Enemies
+  * Hazards
+
+### ⚠️ Death System
+
+* No HP system
+* Player dies instantly when touching:
+
+  * `killzone` (spikes/traps)
+  * `slime` (enemy)
+* Death triggers:
+
+  * Scene reload or restart via `game_manager.gd`
+
+---
+
+## 👾 Enemies (AI)
+
+### 🟢 Slime Enemy (`slime.tscn`)
+
+* Basic movement behavior (likely patrol or directional)
+* Acts as a **kill-on-contact entity**
+* Controlled via `slime.gd`
+
+---
+
+## 💰 Collectibles
+
+### 🪙 Coin System (`coin.tscn`)
+
+* Player can collect coins
+* Logic handled in `coin.gd`
+* Can be extended to:
+
+  * Score system
+  * Unlockables
+
+---
+
+## 🧱 Level Design
+
+### Features
+
+* Tile/platform-based layout
+* Hazard placement using `killzone.tscn`
+* Progressive difficulty design
+
+### Mechanics
+
+* Instant restart on failure
+* No checkpoints (hard reset gameplay loop)
+
+---
+
+## 🎵 Audio System
+
+### `music.tscn`
+
+* Handles background music playback
+* Can be expanded using:
+
+  * Audio buses
+  * SFX layering (jump, death, coin pickup)
+
+---
+
+## 🧠 Game Management
+
+### `game_manager.gd`
+
+Responsible for:
+
+* Restarting the level
+* Managing game state
+* Handling transitions (e.g., Level 1 → Level 2)
+
+---
+
+## 📚 Academic Mapping
+
+### Week 2 – Gameplay Mechanics
+
+✔ Input handling (movement, jump)
+✔ Physics system (collision, gravity)
+✔ Player controller implemented
+
+### Week 2 – Level Design
+
+✔ Platforms and hazards implemented
+✔ Killzone system (instant death)
+✔ Difficulty progression structure
+
+### Week 3 – UI/UX & Audio
+
+✔ Background music system (`music.tscn`)
+✔ Foundation for UI integration
+
+### Week 3 – AI & Enemies
+
+✔ Enemy entity (`slime`)
+✔ Basic AI behavior implemented
+
+---
+
+## ⚙️ How to Run
+
+1. Open project in **Godot Engine**
+2. Load:
+
+   ```
+   game.tscn
+   ```
+3. Press ▶ Run
+
+---
+
+## 🚀 Future Improvements
+
+* Add:
+
+  * HUD (score, lives, level indicator)
+  * Level 2 notification system
+* Improve enemy AI:
+
+  * Patrol + chase behavior (FSM)
+* Add animations:
+
+  * Idle / Run / Jump / Death
+* Implement sound effects:
+
+  * Jump
+  * Coin pickup
+  * Death
+* Add checkpoints instead of full restart (optional)
+
+---
+
+## 🧪 Design Philosophy
+
+This project uses a **fail-fast gameplay loop**:
+
+* Immediate feedback (death on mistake)
+* Encourages precision and timing
+* Simple mechanics, skill-based progression
+
+---
+
+## 📄 Notes
+
+This project is developed for **educational purposes** under structured weekly activities.
+
+---
